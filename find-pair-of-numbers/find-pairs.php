@@ -1,4 +1,5 @@
 <?php
+#Solution Big O(n)
 class FindPairs
 {
 
