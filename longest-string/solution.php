@@ -22,12 +22,12 @@ echo "\n";
 echo $longestString->longest("");           #should return 0
 echo "\n";
 try {
-    echo $longestString->longest(null);         #should return 0
+    echo $longestString->longest(null);         #should return exception
 } catch (\Exception $e) {
     echo $e->getMessage()."\n";
 }
 try {
-    echo $longestString->longest([]);         #should return 0
+    echo $longestString->longest([]);         #should return exception
 } catch (\Exception $e) {
     echo $e->getMessage()."\n";
 }
