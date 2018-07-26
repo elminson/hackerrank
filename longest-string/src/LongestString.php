@@ -34,12 +34,11 @@ class LongestString
             for ($i = 0; $i < count($array); $i++) {
                 if (in_array($array[$i], $temp)) {
                     $temp = [];
-                    $temp[] = $array[$i];
                     $temp_count = 1;
                 } else {
-                    $temp[] = $array[$i];
                     $temp_count++;
                 }
+                $temp[] = $array[$i];
                 if ($longest_string <= $temp_count) {
                     $longest_string = $temp_count;
                 }
