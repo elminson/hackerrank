@@ -1,28 +1,18 @@
 <?php
-#3. Longest Substring Without Repeating Characters
 
-function longest($string)
-{
-    $array = str_split($string);
-    $temp = [];
-    $temp_count = 0;
-    $longest_string = 0;
-    for ($i = 0; $i < count($array); $i++) {
-        if (in_array($array[$i], $temp)) {
-            $temp = [];
-            $temp[] = $array[$i];
-            $temp_count = 1;
-        } else {
-            $temp[] = $array[$i];
-            $temp_count++;
-        }
-        if ($longest_string <= $temp_count) {
-            $longest_string = $temp_count;
-        }
-    }
-    return $next;
-}
+namespace Elminson\Longest;
 
-echo longest("abcabcbb");   #should return 3 
-echo longest("bbbbb");      #should return 1
-echo longest("pwwkew");     #should return 3
+/**
+ * Created by edeoleo@gmail.com.
+ * User: Elminson De Oleo Baez
+ * Desc: #3. Longest Substring Without Repeating Characters
+ * Date: 7/25/2018
+ * Time: 10:02 PM
+ */
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$longestString = new LongestString();
+echo $longestString->longest("abcabcbb");   #should return 3
+echo $longestString->longest("bbbbb");      #should return 1
+echo $longestString->longest("pwwkew");     #should return 3
