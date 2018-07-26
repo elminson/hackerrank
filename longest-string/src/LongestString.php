@@ -14,25 +14,40 @@ class LongestString
     /**
      * @param $string
      * @return int
+     * @throws \Exception
      */
-    function longest($string)
+    function longest($string = "")
     {
+        if (!is_string($string)) {
+            throw new \Exception("Parameter need to be a valid string");
+        }
+
+        if ($string == "") {
+            return 0;
+        }
+
         $array = str_split($string);
         $temp = [];
         $temp_count = 0;
         $longest_string = 0;
-        for ($i = 0; $i < count($array); $i++) {
-            if (in_array($array[$i], $temp)) {
-                $temp = [];
-                $temp[] = $array[$i];
-                $temp_count = 1;
-            } else {
-                $temp[] = $array[$i];
-                $temp_count++;
+        try {
+            for ($i = 0; $i < count($array); $i++) {
+                if (in_array($array[$i], $temp)) {
+                    $temp = [];
+                    $temp[] = $array[$i];
+                    $temp_count = 1;
+                } else {
+                    $temp[] = $array[$i];
+                    $temp_count++;
+                }
+                if ($longest_string <= $temp_count) {
+                    $longest_string = $temp_count;
+                }
             }
-            if ($longest_string <= $temp_count) {
-                $longest_string = $temp_count;
-            }
+        } catch (\Exception $e) {
+            throw  new \Exception($e->getMessage());
+        } catch (\Error $e) {
+            throw  new \Error($e->getMessage());
         }
         return $longest_string;
     }

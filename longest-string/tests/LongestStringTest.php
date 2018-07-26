@@ -21,5 +21,18 @@ class LongestStringTest extends TestCase
         $this->assertEquals((new LongestString())->longest("abcabcbb"), 3);
         $this->assertEquals((new LongestString())->longest("bbbbb"), 1);
         $this->assertEquals((new LongestString())->longest("pwwkew"), 3);
+        $this->assertEquals((new LongestString())->longest(""), 0);
+    }
+
+    public function testFailLongestArray()
+    {
+        $this->ExpectException("Exception");
+        (new LongestString())->longest(null);
+    }
+
+    public function testFailLongestNull()
+    {
+        $this->ExpectException("Exception");
+        (new LongestString())->longest([]);
     }
 }
