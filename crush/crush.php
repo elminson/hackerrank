@@ -6,33 +6,33 @@
  */
 
 /**
- * @param $n
+ * @param $number
  * @param $queries
  * @return int|mixed
  */
 
-function arrayManipulation($n, $queries) {
+function arrayManipulation($number, $queries) {
 
-    $ar=[];
-    for ($i = 0; $i < count($queries); $i++)
+    $array=[];
+    for ($index = 0; $index < count($queries); $index++)
     {
-        $ar[$queries[$i][0]-1]=0;
-        $ar[$queries[$i][1]]=0;
+        $array[$queries[$index][0]-1]=0;
+        $array[$queries[$index][1]]=0;
     }
-    for ($i = 0; $i < count($queries); $i++)
+    for ($index = 0; $index < count($queries); $index++)
     {
-        $a= $queries[$i][0];
-        $b= $queries[$i][1];
-        $k= $queries[$i][2];
-        $ar[$a-1] += $k;
-        $ar[$b] -= $k;
+        $a= $queries[$index][0];
+        $b= $queries[$index][1];
+        $k= $queries[$index][2];
+        $array[$a-1] += $k;
+        $array[$b] -= $k;
     }
 
     $sum=0;
     $max=0;
-    for ($i = 0; $i < $n; $i++)
+    for ($index = 0; $index < $number; $index++)
     {
-        @$sum += $ar[$i];
+        @$sum += $array[$index];
         if ($sum > $max)
             $max = $sum;
     }
