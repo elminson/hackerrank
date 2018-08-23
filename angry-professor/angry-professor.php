@@ -34,7 +34,8 @@ fscanf(/** @scrutinizer ignore-type */
     $stdin, "%d\n", $t);
 
 for ($t_itr = 0; $t_itr < $t; $t_itr++) {
-    fscanf($stdin, "%[^\n]", $nk_temp);
+    fscanf(/** @scrutinizer ignore-type */
+        $stdin, "%[^\n]", $nk_temp);
     $nk = explode(' ', $nk_temp);
 
     $n = intval($nk[0]);
@@ -54,4 +55,5 @@ for ($t_itr = 0; $t_itr < $t; $t_itr++) {
 
 fclose(/** @scrutinizer ignore-type */
     $stdin);
-fclose($fptr);
+fclose(/** @scrutinizer ignore-type */
+    $fptr);
