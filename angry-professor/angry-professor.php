@@ -17,8 +17,9 @@
 function angryProfessor($k, $a)
 {
     $not = 0;
-    for ($i = 0; $i < count($a); $i++) {
-        if ($a[$i] <= 0) {
+    $size = count($a);
+    for ($index = 0; $index < $size; $index++) {
+        if ($a[$index] <= 0) {
             $not++;
         }
     }
@@ -29,10 +30,12 @@ $fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
 $stdin = fopen("php://stdin", "r");
 
-fscanf($stdin, "%d\n", $t);
+fscanf(/** @scrutinizer ignore-type */
+    $stdin, "%d\n", $t);
 
 for ($t_itr = 0; $t_itr < $t; $t_itr++) {
-    fscanf($stdin, "%[^\n]", $nk_temp);
+    fscanf(/** @scrutinizer ignore-type */
+        $stdin, "%[^\n]", $nk_temp);
     $nk = explode(' ', $nk_temp);
 
     $n = intval($nk[0]);
@@ -41,12 +44,16 @@ for ($t_itr = 0; $t_itr < $t; $t_itr++) {
 
     fscanf($stdin, "%[^\n]", $a_temp);
 
-    $a = array_map('intval', preg_split('/ /', $a_temp, -1, PREG_SPLIT_NO_EMPTY));
+    $a = array_map('intval', /** @scrutinizer ignore-type */
+        preg_split('/ /', $a_temp, -1, PREG_SPLIT_NO_EMPTY));
 
     $result = angryProfessor($k, $a);
 
-    fwrite($fptr, $result . "\n");
+    fwrite(/** @scrutinizer ignore-type */
+        $fptr, $result . "\n");
 }
 
-fclose($stdin);
-fclose($fptr);
+fclose(/** @scrutinizer ignore-type */
+    $stdin);
+fclose(/** @scrutinizer ignore-type */
+    $fptr);
