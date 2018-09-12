@@ -6,7 +6,7 @@ function breakingRecords($scores)
     $size = count($scores);
     $min = $scores[0];
     $max = $scores[0];
-    $x = 1;
+    $index = 1;
     $min_r = 0;
     $max_r = 0;
     $board = [];
@@ -15,20 +15,20 @@ function breakingRecords($scores)
     $board[0]['score'] = $scores[0];
     $board[0]['max'] = $max;
     $board[0]['min'] = $min;
-    while ($x < $size) {
-        $min = min($min, $scores[$x]);
-        $max = max($max, $scores[$x]);
-        $board[$x]['game'] = $x;
-        $board[$x]['score'] = $scores[$x];
-        $board[$x]['max'] = $max;
-        $board[$x]['min'] = $min;
-        if ($min < $board[$x - 1]['min']) {
+    while ($index < $size) {
+        $min = min($min, $scores[$index]);
+        $max = max($max, $scores[$index]);
+        $board[$index]['game'] = $index;
+        $board[$index]['score'] = $scores[$index];
+        $board[$index]['max'] = $max;
+        $board[$index]['min'] = $min;
+        if ($min < $board[$index - 1]['min']) {
             $min_r++;
         }
-        if ($max > $board[$x - 1]['max']) {
+        if ($max > $board[$index - 1]['max']) {
             $max_r++;
         }
-        $x++;
+        $index++;
     }
 
     return [$max_r, $min_r];
