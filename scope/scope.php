@@ -1,12 +1,31 @@
 <?php
-class Difference{
-    private $elements=array();
+
+/**
+ * Class Difference
+ */
+class Difference
+{
+    /**
+     * @var array
+     */
+    private $elements = array();
+    /**
+     * @var
+     */
     public $maximumDifference;
+
+    /**
+     * Difference constructor.
+     * @param array $array
+     */
     public function __construct(array $array)
     {
         $this->elements = $array;
     }
 
+    /**
+     * @return float|int
+     */
     public function ComputeDifference()
     {
         $this->maximumDifference = 0;
@@ -21,6 +40,10 @@ class Difference{
         return $this->maximumDifference;
     }
 
+    /**
+     * @param $array
+     * @return array
+     */
     public function pc_array($array)
     {
         // initialize by adding the empty set
@@ -36,9 +59,9 @@ class Difference{
 } //End of Difference class
 
 
-$N=intval(fgets(STDIN));
-$a =array_map('intval', explode(' ', fgets(STDIN)));
-$d=new Difference($a);
-$d->ComputeDifference();
-print ($d->maximumDifference);
+$Number = intval(fgets(STDIN));
+$array = array_map('intval', explode(' ', fgets(STDIN)));
+$diff = new Difference($array);
+$diff->ComputeDifference();
+print ($diff->maximumDifference);
 ?>
