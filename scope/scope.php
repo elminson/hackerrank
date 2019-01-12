@@ -64,4 +64,3 @@ $array = array_map('intval', explode(' ', fgets(STDIN)));
 $diff = new Difference($array);
 $diff->ComputeDifference();
 print ($diff->maximumDifference);
-?>
